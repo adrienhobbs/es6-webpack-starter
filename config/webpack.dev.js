@@ -1,12 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
+const baseDir = path.resolve(__dirname, '../', 'src')
 
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
   entry: './src/index.js',
   devServer: {
     port: 8080,
-    contentBase: path.resolve(__dirname, '../', 'src'),
+    contentBase: baseDir,
     stats: {
       all: undefined,
       modules: false,
@@ -77,6 +80,13 @@ module.exports = {
       title: 'Webpack Starter Kit',
       inject: true,
       template: 'index.ejs'
+    }),
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:8080/'
     })
   ]
 }

@@ -11,6 +11,8 @@
     "autoprefixer": "^9.5.0",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.5",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
@@ -34,5 +36,6 @@
   "scripts": {
     "start": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack.dev.js --mode development'",
     "build": "webpack --config config/webpack.prod.js --mode production"
-  }
+  },
+  "devDependencies": {}
 }
