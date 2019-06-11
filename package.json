@@ -35,7 +35,8 @@
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
-    "start": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack.dev.js --mode development'",
+    "start-sync": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack-setup.js --mode development --env.sync'",
+    "start": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack-setup.js --mode development'",
     "build": "webpack --config config/webpack.prod.js --mode production"
   },
   "devDependencies": {}

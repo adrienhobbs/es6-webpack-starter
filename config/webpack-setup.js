@@ -4,7 +4,19 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const baseDir = path.resolve(__dirname, '../', 'src')
 
 module.exports = (env, argv) => {
-  console.log(argv.mode)
+  let plugins = []
+  let config = {}
+
+  if (env && env.sync && argv.mode === 'development') {
+    plugins.push(
+      new BrowserSyncPlugin({
+        host: 'localhost',
+        port: 3000,
+        proxy: 'http://localhost:8080/',
+        open: false
+      })
+    )
+  }
 
   return {
     devtool: 'eval-cheap-module-source-map',
@@ -82,11 +94,6 @@ module.exports = (env, argv) => {
         title: 'Webpack Starter Kit',
         inject: true,
         template: 'index.html'
-      }),
-      new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        proxy: 'http://localhost:8080/'
       })
     ]
   }

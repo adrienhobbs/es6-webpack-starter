@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const DelWebpackPlugin = require('del-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-
 const buildPath = path.resolve(__dirname, '../', 'dist')
 
 module.exports = {
