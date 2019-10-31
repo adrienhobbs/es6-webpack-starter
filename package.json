@@ -37,7 +37,7 @@
   "scripts": {
     "start-sync": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack-setup.js --mode development --env.sync'",
     "start": "nodemon --watch config --exec 'webpack-dev-server --config config/webpack-setup.js --mode development'",
-    "build": "webpack --config config/webpack.prod.js --mode production"
+    "build": "webpack --config config/webpack-setup.js --mode production"
   },
   "devDependencies": {}
 }
